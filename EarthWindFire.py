@@ -10,6 +10,7 @@ from datetime import date
 
 class date_formatter:
     today = date.today()
+
     def __init__(self):
         self.day_number = self.today.strftime("%d") #string, 22
         self.month = self.today.strftime("%B") #November
@@ -69,17 +70,26 @@ class date_formatter:
 
     
     
-my_date = date_formatter()
 
-today_date_array = [my_date.basic_day, my_date.num2words(),
-                    my_date.shorthand_date_ordinals(),
-                    my_date.longhand_date_ordinals()]
-request_string = ''
-for i in today_date_array:
-    print(i)
-    request_string = request_string + i + ','
-request_string = request_string[:-1]
-    
+class musixmatch:
+    def __init__(self, dates):
+        self.dates = dates
+        
+    def build_request(self):
+        #format input dates into string
+        return()
+        
+    def request_released_today(self):
+        date_request = build_request(self.dates)
+        api_string = ''
+        return()
+        
+    def request_about_today(self):
+        date_request = build_request(self.dates)
+        api_string = ''
+        return()
+        
+        
 
 
 #API KEY
@@ -87,4 +97,19 @@ request_string = request_string[:-1]
 #API inputs
 #q for query
 #Most popular Songs about today   http://api.musixmatch.com/ws/1.1/track.search?q={my dates}&s_track_rating=desc
-#Most popular songs songs released todayhttp://api.musixmatch.com/ws/1.1/track.search?f_track_release_group_first_release_date_min={YYYYMMDD}&f_track_release_group_first_release_date_max={YYYYMMDD}&s_track_rating=desc
+#Most popular songs songs released today http://api.musixmatch.com/ws/1.1/track.search?f_track_release_group_first_release_date_min={YYYYMMDD}&f_track_release_group_first_release_date_max={YYYYMMDD}&s_track_rating=desc
+
+def main():
+    my_date = date_formatter()
+
+    today_date_array = [my_date.basic_day, my_date.num2words(),
+                        my_date.shorthand_date_ordinals(),
+                        my_date.longhand_date_ordinals()]
+    request_string = ''
+    for i in today_date_array:
+        print(i)
+        request_string = request_string + i + ','
+    request_string = request_string[:-1]
+
+
+main()
